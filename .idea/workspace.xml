@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c4666414-7497-4ecf-84df-fbdc91fb8fc9" name="Changes" comment="Hw 22 ready">
+      <change afterPath="$PROJECT_DIR$/.idea/Chat.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/target/classes/Chat/callBack/Callback.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/target/classes/Chat/callBack/ClientApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/target/classes/Chat/callBack/ClientApplicationWithCallbacks.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/target/classes/Chat/callBack/Network.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/target/classes/META-INF/maven/archetype.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/target/classes/archetype-resources/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/target/classes/archetype-resources/src/main/java/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/target/classes/archetype-resources/src/test/java/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/target/classes/META-INF/maven/archetype.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/target/classes/archetype-resources/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/target/classes/archetype-resources/src/main/java/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/target/classes/archetype-resources/src/test/java/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/target/classes/chat/server/ClientHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/target/classes/chat/server/Server.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/target/classes/chat/server/ServerApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/Callback.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/ClientApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/ClientApplicationWithCallbacks.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/Network.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/server/ClientHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/server/Server.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/server/ServerApplication.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="ed898947-36d7-4b41-9688-28ffc2113be9" />
+        <option name="url" value="https://github.com/61Eb/Chat.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Server.iml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="2cRNr2HZjczUsaOtVInawT0FCp2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "11",
+    "last_opened_file_path": "D:/Chat",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4954023",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c4666414-7497-4ecf-84df-fbdc91fb8fc9" name="Changes" comment="" />
+      <created>1708070627879</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708070627879</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Hw 22 ready">
+      <option name="closed" value="true" />
+      <created>1708433462761</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708433462761</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Hw 22 ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hw 22 ready" />
+  </component>
+</project>
