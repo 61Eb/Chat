@@ -1,10 +1,8 @@
 package chat.server;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Server {
@@ -13,69 +11,46 @@ public class Server {
 
     public Server(int port) {
         this.port = port;
-        this.clients = new ArrayList();
+        this.clients = new ArrayList<>();
     }
 
     public void start() {
-        try {
-            ServerSocket serverSocket = new ServerSocket(this.port);
-
-            try {
-                System.out.printf("Сервер запущен на порту %d. Ожидание подключения клиентов\n", this.port);
-
-                while(true) {
-                    Socket socket = serverSocket.accept();
-
-                    try {
-                        this.subscribe(new ClientHandler(this, socket));
-                    } catch (IOException var5) {
-                        System.out.println("Не удалось подключить клиента");
-                    }
-                }
-            } catch (Throwable var6) {
+        try (ServerSocket serverSocket = new ServerSocket(port)) {
+            System.out.printf("Сервер запущен на порту %d. Ожидание подключения клиентов\n", port);
+            while (true) {
+                Socket socket = serverSocket.accept();
                 try {
-                    serverSocket.close();
-                } catch (Throwable var4) {
-                    var6.addSuppressed(var4);
+                    subscribe(new ClientHandler(this, socket));
+                } catch (IOException e) {
+                    System.out.println("Не удалось подключить клиента");
                 }
-
-                throw var6;
             }
-        } catch (IOException var7) {
-            var7.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     public synchronized void broadcastMessage(String message) {
-        Iterator var2 = this.clients.iterator();
-
-        while(var2.hasNext()) {
-            ClientHandler clientHandler = (ClientHandler)var2.next();
+        for (ClientHandler clientHandler : clients) {
             clientHandler.sendMessage(message);
         }
-
     }
 
     public synchronized void subscribe(ClientHandler clientHandler) {
-        this.clients.add(clientHandler);
+        clients.add(clientHandler);
         System.out.println("Подключился новый клиент " + clientHandler.getUsername());
     }
 
     public synchronized void unsubscribe(ClientHandler clientHandler) {
-        this.clients.remove(clientHandler);
+        clients.remove(clientHandler);
         System.out.println("Отключился клиент " + clientHandler.getUsername());
     }
 
     public synchronized void sendPrivateMessage(ClientHandler sender, String receiverUsername, String message) {
-        Iterator var4 = this.clients.iterator();
-
-        while(var4.hasNext()) {
-            ClientHandler client = (ClientHandler)var4.next();
-            if (client.getUsername().equals(receiverUsername)) {
+        for (ClientHandler client : clients) {
+            if (client.getUsername().equals(receiverUsername)){
                 client.sendMessage("Пользователь " + sender.getUsername() + " пишет: " + message);
             }
         }
-
     }
 }
-

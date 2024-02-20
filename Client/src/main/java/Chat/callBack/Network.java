@@ -11,63 +11,56 @@ public class Network implements AutoCloseable {
     private DataOutputStream out;
     private Callback onMessageReceived;
 
-    public Network() {
-    }
-
     public void setOnMessageReceived(Callback onMessageReceived) {
         this.onMessageReceived = onMessageReceived;
     }
 
     public void connect(int port) throws IOException {
         this.socket = new Socket("localhost", port);
-        this.in = new DataInputStream(this.socket.getInputStream());
-        this.out = new DataOutputStream(this.socket.getOutputStream());
-        (new Thread(() -> {
+        this.in = new DataInputStream(socket.getInputStream());
+        this.out = new DataOutputStream(socket.getOutputStream());
+        new Thread(() -> {
             try {
-                while(true) {
-                    String message = this.in.readUTF();
-                    if (this.onMessageReceived != null) {
-                        this.onMessageReceived.callback(new Object[]{message});
+                while (true) {
+                    String message = in.readUTF();
+                    if (onMessageReceived != null) {
+                        onMessageReceived.callback(message);
                     }
                 }
-            } catch (IOException var5) {
-                var5.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             } finally {
-                this.close();
+                close();
             }
-
-        })).start();
+        }).start();
     }
 
     public void sendMessage(String message) throws IOException {
-        this.out.writeUTF(message);
+        out.writeUTF(message);
     }
 
+    @Override
     public void close() {
-        if (this.in != null) {
+        if (in != null) {
             try {
-                this.in.close();
-            } catch (IOException var4) {
-                var4.printStackTrace();
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
-
-        if (this.out != null) {
+        if (out != null) {
             try {
-                this.out.close();
-            } catch (IOException var3) {
-                var3.printStackTrace();
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
-
-        if (this.socket != null) {
+        if (socket != null) {
             try {
-                this.socket.close();
-            } catch (IOException var2) {
-                var2.printStackTrace();
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
-
     }
 }
-

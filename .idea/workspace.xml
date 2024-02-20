@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4666414-7497-4ecf-84df-fbdc91fb8fc9" name="Changes" comment="Hw 22 ready">
-      <change afterPath="$PROJECT_DIR$/.idea/Chat.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c4666414-7497-4ecf-84df-fbdc91fb8fc9" name="Changes" comment="Hw 22 rzeady">
       <change afterPath="$PROJECT_DIR$/Client/target/classes/Chat/callBack/Callback.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Client/target/classes/Chat/callBack/ClientApplication.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Client/target/classes/Chat/callBack/ClientApplicationWithCallbacks.class" afterDir="false" />
@@ -21,7 +13,6 @@
       <change afterPath="$PROJECT_DIR$/Client/target/classes/archetype-resources/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Client/target/classes/archetype-resources/src/main/java/App.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Client/target/classes/archetype-resources/src/test/java/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Server/target/classes/META-INF/maven/archetype.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Server/target/classes/archetype-resources/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Server/target/classes/archetype-resources/src/main/java/App.java" afterDir="false" />
@@ -29,13 +20,18 @@
       <change afterPath="$PROJECT_DIR$/Server/target/classes/chat/server/ClientHandler.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Server/target/classes/chat/server/Server.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Server/target/classes/chat/server/ServerApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/Callback.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/ClientApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/ClientApplicationWithCallbacks.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/Network.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/server/ClientHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/server/Server.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Chat/Chat/server/ServerApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/Chat/callBack/CallBack.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/Chat/callBack/CallBack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/Chat/callBack/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/Chat/callBack/ClientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/Chat/callBack/ClientApplicationWithCallbacks.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/Chat/callBack/ClientApplicationWithCallbacks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/Chat/callBack/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/Chat/callBack/Network.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/chat/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/chat/server/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/chat/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/chat/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/ClientApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/ClientApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/ClientApplicationWithCallbacks.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/ClientApplicationWithCallbacks.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/Network.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chat/Chat/callBack/Network.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chat/Chat/server/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chat/Chat/server/ClientHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chat/Chat/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chat/Chat/server/Server.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +103,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708433462761</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Hw 22 rzeady">
+      <option name="closed" value="true" />
+      <created>1708445877544</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708445877544</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,6 +127,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Hw 22 ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hw 22 ready" />
+    <MESSAGE value="Hw 22 rzeady" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hw 22 rzeady" />
   </component>
 </project>
