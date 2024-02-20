@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ClientApplicationWithCallbacks {
-
     public static void main(String[] args) {
         try (Network network = new Network()) {
             network.setOnMessageReceived(arguments -> {

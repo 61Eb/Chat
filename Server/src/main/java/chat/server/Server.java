@@ -1,4 +1,5 @@
 package chat.server;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -8,6 +9,11 @@ import java.util.List;
 public class Server {
     private int port;
     private List<ClientHandler> clients;
+    private UserService userService;
+
+    public UserService getUserService() {
+        return userService;
+    }
 
     public Server(int port) {
         this.port = port;
@@ -16,13 +22,15 @@ public class Server {
 
     public void start() {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.printf("Сервер запущен на порту %d. Ожидание подключения клиентов\n", port);
+            System.out.printf("Ожидание подключения клиента\n", port);
+            userService = new InMemoryUserService();
+            System.out.println("Пользовательский сервис запущен");
             while (true) {
                 Socket socket = serverSocket.accept();
                 try {
-                    subscribe(new ClientHandler(this, socket));
+                    new ClientHandler(this, socket);
                 } catch (IOException e) {
-                    System.out.println("Не удалось подключить клиента");
+                    System.out.println("Не удалось подключить клиент");
                 }
             }
         } catch (IOException e) {
@@ -37,20 +45,33 @@ public class Server {
     }
 
     public synchronized void subscribe(ClientHandler clientHandler) {
+        broadcastMessage("Подключен новый клиент: " + clientHandler.getUsername());
         clients.add(clientHandler);
-        System.out.println("Подключился новый клиент " + clientHandler.getUsername());
     }
 
     public synchronized void unsubscribe(ClientHandler clientHandler) {
         clients.remove(clientHandler);
-        System.out.println("Отключился клиент " + clientHandler.getUsername());
+        broadcastMessage("Клиент отключен: " + clientHandler.getUsername());
     }
 
-    public synchronized void sendPrivateMessage(ClientHandler sender, String receiverUsername, String message) {
-        for (ClientHandler client : clients) {
-            if (client.getUsername().equals(receiverUsername)){
-                client.sendMessage("Пользователь " + sender.getUsername() + " пишет: " + message);
+    public synchronized boolean isUserBusy(String username) {
+        for (ClientHandler c : clients) {
+            if (c.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public synchronized void kickUser(String username) {
+        for (ClientHandler c : clients) {
+            if (c.getUsername().equals(username)) {
+                c.sendMessage("СЕРВЕР: Вас выгнали из чата");
+                c.disconnect();
+                break;
             }
         }
     }
 }
+
+

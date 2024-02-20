@@ -10,7 +10,6 @@ public class Network implements AutoCloseable {
     private DataInputStream in;
     private DataOutputStream out;
     private Callback onMessageReceived;
-
     public void setOnMessageReceived(Callback onMessageReceived) {
         this.onMessageReceived = onMessageReceived;
     }
