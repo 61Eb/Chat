@@ -1,0 +1,137 @@
+USE Sql;
+
+drop table if exists ReplyTrue;
+drop table if exists QuestionReply;
+drop table if exists TestQuestion;
+drop table if exists Test;
+
+/*==============================================================*/
+/* Table: Test                                                  */
+/*==============================================================*/
+create table Test
+(
+   TestId               int not null  comment '',
+   TestName             varchar(512) not null  comment '',
+   DateOfCreation       timestamp not null default CURRENT_TIMESTAMP  comment '',
+   primary key (TestId)
+);
+
+insert into Test(TestId, TestName) values(1, 'First test1111');
+insert into Test(TestId, TestName) values(2, 'Second test');
+insert into Test(TestId, TestName) values(4, 'Test 4');
+
+
+
+
+/*==============================================================*/
+/* Table: TestQuestion                                          */
+/*==============================================================*/
+create table TestQuestion
+(
+   QuestionId           int not null  comment '',
+   TestId               int not null  comment '',
+   QuestionStr          varchar(2048) not null  comment '',
+   QuestionPos          int not null  comment '',
+   primary key (QuestionId)
+);
+
+insert into TestQuestion(QuestionId, TestId,  QuestionStr, QuestionPos) values(10, 1, '1 + 2 = ?', 2);
+insert into TestQuestion(QuestionId, TestId,  QuestionStr, QuestionPos) values(11, 1, '3 + 4 = ?', 1);
+insert into TestQuestion(QuestionId, TestId,  QuestionStr, QuestionPos) values(20, 2, '2 * 3 = ?', 1);
+
+alter table TestQuestion add constraint FK_TESTQUES_REFERENCE_TEST foreign key (TestId)
+      references Test (TestId) on delete restrict on update restrict;
+
+
+create table QuestionReply
+(
+   ReplyId              int not null  comment '',
+   QuestionId           int  comment '',
+   ReplyPos             int not null  comment '',
+   ReplyStr             varchar(1024) not null  comment '',
+   primary key (ReplyId)
+);
+
+insert into QuestionReply(QuestionId, ReplyId, ReplyPos, ReplyStr) values(10, 1, 1, '4');
+insert into QuestionReply(QuestionId, ReplyId, ReplyPos, ReplyStr) values(10, 2, 2, '6');
+insert into QuestionReply(QuestionId, ReplyId, ReplyPos, ReplyStr) values(10, 3, 4, '10');
+insert into QuestionReply(QuestionId, ReplyId, ReplyPos, ReplyStr) values(10, 4, 3, '100');
+insert into QuestionReply(QuestionId, ReplyId, ReplyPos, ReplyStr) values(10, 5, 5, '3');
+
+
+insert into QuestionReply(QuestionId, ReplyId, ReplyPos, ReplyStr) values(20, 11, 1, '5');
+insert into QuestionReply(QuestionId, ReplyId, ReplyPos, ReplyStr) values(20, 12, 2, '6');
+
+alter table QuestionReply add constraint FK_QUESTION_REFERENCE_TESTQUES foreign key (QuestionId)
+      references TestQuestion (QuestionId) on delete restrict on update restrict;
+
+
+create table ReplyTrue
+(
+   QuestionId           int not null  comment '',
+   ReplyId              int not null  comment '',
+   primary key (QuestionId)
+);
+
+insert into ReplyTrue(QuestionId, ReplyId) values(10, 5);
+insert into ReplyTrue(QuestionId, ReplyId) values(20, 12);
+
+alter table ReplyTrue add constraint FK_REPLYTRU_REFERENCE_TESTQUES foreign key (QuestionId)
+      references TestQuestion (QuestionId) on delete restrict on update restrict;
+
+alter table ReplyTrue add constraint FK_REPLYTRU_REFERENCE_QUESTION foreign key (ReplyId)
+      references QuestionReply (ReplyId) on delete restrict on update restrict;
+
+
+
+drop table if exists TestPassingReply;
+drop table if exists User2Test;
+
+create table User2Test
+(
+   UserPassId           int                            not null,
+   FirstName            varchar(250)                   not null,
+   SecondName           varchar(250)                   not null,
+   DateOfPass           timestamp                      not null default CURRENT_TIMESTAMP,
+   constraint PK_USER2TEST primary key (UserPassId)
+);
+
+/*==============================================================*/
+/* Index: flNameDateOfCreation                                  */
+/*==============================================================*/
+create unique index flNameDateOfCreation on User2Test (
+FirstName ASC,
+SecondName ASC,
+DateOfPass ASC
+);
+
+
+
+/*==============================================================*/
+/* Table: TestPassingReply                                      */
+/*==============================================================*/
+create table TestPassingReply
+(
+   UserPassId           int                            not null,
+   ReplyId              int                            not null
+);
+
+/*==============================================================*/
+/* Index: testPassingUI                                          */
+/*==============================================================*/
+create unique index testPassingUI on TestPassingReply (
+UserPassId ASC,
+ReplyId ASC
+);
+
+alter table TestPassingReply
+   add constraint FK_TESTPASS_REFERENCE_USER2TES foreign key (UserPassId)
+      references User2Test (UserPassId)
+      on update restrict
+      on delete restrict;
+
+alter table TestPassingReply
+   add constraint FK_TESTPASS_REFERENCE_QUESTION foreign key (ReplyId)
+      references QuestionReply (ReplyId)
+      on update restrict
+      on delete restrict;
