@@ -4,29 +4,41 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
+import java.sql.*;
 import java.util.Scanner;
 
 public class ClientApplication {
 
+    public static void validateLogin(PreparedStatement pstmt) {
+        try {
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                System.out.println("Login successful!");
+            } else {
+                System.out.println("Invalid credentials. Login failed.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
-        try (
-                Socket socket = new Socket("localhost", 8189);
-                DataInputStream in = new DataInputStream(socket.getInputStream());
-                DataOutputStream out = new DataOutputStream(socket.getOutputStream())
-        ) {
+        try (Socket socket = new Socket("localhost", 8189); DataInputStream in = new DataInputStream(socket.getInputStream()); DataOutputStream out = new DataOutputStream(socket.getOutputStream())) {
             System.out.println("Подключились к серверу");
             Scanner scanner = new Scanner(System.in);
+
             new Thread(() -> {
                 try {
                     while (true) {
                         String message = in.readUTF();
                         System.out.println(message);
+
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }).start();
+
             while (true) {
                 String message = scanner.nextLine();
                 out.writeUTF(message);
@@ -37,5 +49,9 @@ public class ClientApplication {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void log(String str) {
+        System.out.println(str);
     }
 }
